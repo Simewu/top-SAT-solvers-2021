@@ -21,6 +21,8 @@ To use the SAT solvers within a Linux machine, enter the following:
 ```bash
 ./compile_SATs.sh
 
-./run_SAT.sh
-./run_SAT.sh SAT_INSTANCE.cnf
+# Run the default "simple.cnf" file
+./run_SATs.sh
+# Run any other DIMACS file
+./run_SATs.sh PATH_TO_SAT_INSTANCE.cnf
 ```
