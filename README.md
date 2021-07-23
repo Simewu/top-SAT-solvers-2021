@@ -1,6 +1,8 @@
-# The Three SAT Solvers of 2021
+# The Top Three SAT Solvers of 2021
 
-The SAT 2021 conference was held on July 5th in Barcelona. The proceedings can be found [here](https://link.springer.com/content/pdf/10.1007%2F978-3-030-80223-3.pdf), and the results can be found [here](https://satcompetition.github.io/2021/slides/ISC2021-fixed.pdf)
+The SAT 2021 conference was held on July 5th in Barcelona.
+
+The proceedings can be found [here](https://link.springer.com/content/pdf/10.1007%2F978-3-030-80223-3.pdf), and the results/slides can be found [here](https://satcompetition.github.io/2021/slides/ISC2021-fixed.pdf)
 
 ---
 
@@ -11,12 +13,11 @@ The winners of the main track were:
 
 ![](main-track.png)
 
----
-
 The source code of the solvers was taken from the [SAT 2021 repository](https://github.com/satcompetition/2021/blob/master/downloads/solvers-main.tar.xz).
 
 ---
-
+## Usage
+To use the SAT solvers within a Linux machine, enter the following:
 ```bash
 ./compile_SATs.sh
 
