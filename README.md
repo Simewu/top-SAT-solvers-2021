@@ -28,3 +28,8 @@ To use the SAT solvers within a Linux machine, enter the following:
 # Run any DIMACS file against all the SAT solvers
 ./run_SATs.sh PATH_TO_SAT_INSTANCE.cnf
 ```
+
+---
+
+## Web-based Version
+For an easy-to-use web based SAT solver, visit https://github.com/simewu/SAT-solver.
