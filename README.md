@@ -1,6 +1,6 @@
 # The Top Three SAT Solvers of 2021
 
-The SAT 2021 conference was held on July 5th in Barcelona.
+The [SAT 2021](http://www.satcompetition.org/) conference was held on July 5th in Barcelona.
 
 The proceedings can be found [here](https://link.springer.com/content/pdf/10.1007%2F978-3-030-80223-3.pdf), and the results/slides can be found [here](https://satcompetition.github.io/2021/slides/ISC2021-fixed.pdf)
 
