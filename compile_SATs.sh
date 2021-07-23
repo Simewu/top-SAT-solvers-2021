@@ -1,5 +1,7 @@
 PWD=$(pwd)
 
+sudo apt-get install gcc
+
 cd $PWD/kissat_gb
 ./configure && make test
 
