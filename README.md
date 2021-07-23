@@ -19,10 +19,12 @@ The source code of the solvers was taken from the [SAT 2021 repository](https://
 ## Usage
 To use the SAT solvers within a Linux machine, enter the following:
 ```bash
+# Compile the SAT solvers
 ./compile_SATs.sh
 
-# Run the default "simple.cnf" file
+# Run the default "simple.cnf" file against all the SAT solvers
 ./run_SATs.sh
-# Run any other DIMACS file
+
+# Run any DIMACS file against all the SAT solvers
 ./run_SATs.sh PATH_TO_SAT_INSTANCE.cnf
 ```
