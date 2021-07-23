@@ -31,5 +31,5 @@ To use the SAT solvers within a Linux machine, enter the following:
 
 ---
 
-## Web-based Version
+## Web-based version
 For an easy-to-use web based SAT solver, visit https://github.com/simewu/SAT-solver.
