@@ -1,0 +1,5 @@
+#define VERSION "1.0.3"
+#define COMPILER "gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 -W -Wall -O3 -DNEMBEDDED -DNDEBUG -DNMETRICS -DNSTATISTICS"
+#define ID "79d8d8f20465e71fd2b0f193b468898cd803a59a"
+#define BUILD "Thu Jul 22 20:40:18 MDT 2021 Linux mint1 5.4.0-77-generic x86_64"
+#define DIR "/home/mint1/Desktop/kissat-MAB-1.0.3-79d8d8f2/build"
