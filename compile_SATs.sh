@@ -1,5 +1,8 @@
 PWD=$(pwd)
 
+sudo apt install gcc -y
+sudo apt install build-essential -y
+
 cd $PWD/kissat_gb
 ./configure && make test
 
