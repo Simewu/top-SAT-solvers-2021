@@ -1,0 +1,112 @@
+#include <iostream>
+#include <fstream>
+#include <regex>
+
+using namespace std;
+
+struct ClauseNode {
+    int literal;
+    struct ClauseNode *next;
+};
+
+class Clause {
+private:
+    ClauseNode *head,*tail;
+public:
+    Clause() {
+        head = NULL;
+        tail = NULL;
+    }
+    void addNode(int literal) {
+        ClauseNode *tmp = new ClauseNode;
+        tmp->literal = literal;
+        tmp->next = NULL;
+
+        if(head == NULL) {
+            head = tmp;
+            tail = tmp;
+        } else {
+            tail->next = tmp;
+            tail = tail->next;
+        }
+    }
+};
+
+int solve(numVariables, numClauses, Clause *clauses) {
+    int* solution = NULL;
+    solution = new int[numVariables];
+    return 1;
+}
+
+int main(int argc, char** argv) {
+
+    if (argc != 2) {
+        cout << "Solver requires a single file path argument" << endl;
+        return -1;
+    }
+
+    string filename(argv[1]);
+    ifstream file;
+
+    file.open(filename);
+
+    if(!file) {
+        std::cout << "Unable to open file: " << filename << std::endl;
+        return -1;
+    }
+
+    int numVariables = 0;
+    int numClauses = 0;
+
+    Clause* clauses = NULL;
+    int clauseIndex = -1;
+    
+    
+
+    for(string line; getline(file, line) && clauseIndex < numClauses;) {
+        // Skip comments
+        if(line.rfind("c", 0) == 0) continue;
+        
+        // Define the initialization
+        smatch match;
+        regex_match(line, match, regex("p +cnf +([0-9]+) +([0-9]+)"));
+        if(match.size() == 3) {
+            numVariables = atoi(match.str(1).c_str());
+            numClauses = atoi(match.str(2).c_str());
+            clauses = new Clause[numClauses];
+            continue;
+        }
+
+        // Match a clause line
+        clauseIndex++;
+        string literalStr = "";
+        for(int i = 0; line[i] != '\0'; i++) {
+            if(line[i] == '-' || isdigit(line[i])) {
+                literalStr += line[i];
+            } else {
+                if(literalStr.length() > 0) {
+                    if(literalStr == "0") break;
+                    // cout << "Add " << literalStr << " to " << clauseIndex << endl;
+                    clauses[clauseIndex].addNode(atoi(literalStr.c_str()));
+                    literalStr = "";
+                }
+            }
+        }
+        if(literalStr.length() > 0 && literalStr != "0") {
+            // cout << "Add final " << literalStr << " to " << clauseIndex << endl;
+            clauses[clauseIndex].addNode(atoi(literalStr.c_str()));
+            literalStr = "";
+        }
+    }
+    
+    if(!numVariables || !numClauses) {
+        cout << "Number of variables or clauses is undefined." << endl;
+        return -1;
+    }
+
+    solve(clauses);
+
+    file.close();
+
+    return 0;
+}

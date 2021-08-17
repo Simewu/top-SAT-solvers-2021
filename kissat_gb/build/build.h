@@ -1,5 +1,5 @@
 #define VERSION "sc2020"
-#define COMPILER "gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 -W -Wall -O3 -DNEMBEDDED -DNDEBUG -DNMETRICS -DNSTATISTICS"
+#define COMPILER "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0 -W -Wall -O3 -DNEMBEDDED -DNDEBUG -DNMETRICS -DNSTATISTICS"
 #define ID "039805f203ac24f204fd6ae0b3d6bae54332ee1e"
-#define BUILD "Thu Jul 22 20:42:59 MDT 2021 Linux mint1 5.4.0-77-generic x86_64"
-#define DIR "/home/mint1/Desktop/kissat_gb/build"
+#define BUILD "Thu Jul 22 21:30:18 MDT 2021 Linux bitcoin 5.4.0-77-generic x86_64"
+#define DIR "/home/bitcoin/Desktop/top-SAT-solvers-2021/kissat_gb/build"
