@@ -10,9 +10,8 @@ struct ClauseNode {
 };
 
 class Clause {
-private:
-    ClauseNode *head,*tail;
 public:
+    ClauseNode *head,*tail;
     Clause() {
         head = NULL;
         tail = NULL;
@@ -32,10 +31,64 @@ public:
     }
 };
 
-int solve(numVariables, numClauses, Clause *clauses) {
-    int* solution = NULL;
-    solution = new int[numVariables];
-    return 1;
+bool isSatisfied(bool* solution, int numClauses, Clause *clauses) {
+    for(int i = 0; i < numClauses; i++) {
+        // cout << "Checking clause " << i << endl;
+        bool isClauseSatisfied = false;
+        ClauseNode *node = clauses[i].head;
+        while(true) {
+            if(node->literal > 0) {
+                if(solution[node->literal - 1]) {
+                    isClauseSatisfied = true;
+                    break;
+                }
+            } else {
+                if(!solution[-node->literal - 1]) {
+                    isClauseSatisfied = true;
+                    break;
+                }
+            }
+            // cout << "Checking literal " << node->literal << endl;
+            if(node == clauses[i].tail) break;
+            node = node->next;
+        }
+        if(!isClauseSatisfied) return false;
+    }
+    return true;
+}
+
+void printSolution(int numVariables, bool* solution) {
+    for(int i = 0; i < numVariables; i++) {
+        cout << solution[i];
+    }
+    cout << endl;
+}
+
+// Recursive solve
+int _solve(bool* solution, int numVariables, int numClauses, Clause *clauses, int n) {
+    if(n >= numVariables) {
+        // printSolution(numVariables, solution);
+        if(isSatisfied(solution, numClauses, clauses)) return 1;
+        return 0;
+    }
+
+    solution[n] = false;
+    bool s1 = _solve(solution, numVariables, numClauses, clauses, n + 1);
+
+    solution[n] = true;
+    bool s2 = _solve(solution, numVariables, numClauses, clauses, n + 1);
+
+
+    return s1 || s2;
+}
+
+int solve(int numVariables, int numClauses, Clause *clauses) {
+    
+    bool solution[numVariables] = {false};
+    
+    bool isSAT = _solve(solution, numVariables, numClauses, clauses, 0);
+    
+    return isSAT;
 }
 
 int main(int argc, char** argv) {
@@ -98,15 +151,22 @@ int main(int argc, char** argv) {
             literalStr = "";
         }
     }
+    file.close();
     
     if(!numVariables || !numClauses) {
         cout << "Number of variables or clauses is undefined." << endl;
         return -1;
     }
 
-    solve(clauses);
+    bool isSAT = solve(numVariables, numClauses, clauses);
 
-    file.close();
+    if(isSAT) {
+        cout << "SAT instance is satifiable." << endl;
+    } else {
+        cout << "SAT instance is unsatifiable." << endl;
+    }
+
+    
 
     return 0;
 }
