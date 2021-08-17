@@ -33,7 +33,7 @@ public:
 
 bool isSatisfied(bool* solution, int numClauses, Clause *clauses) {
     for(int i = 0; i < numClauses; i++) {
-        // cout << "Checking clause " << i << endl;
+        cout << "    Checking clause " << i << endl;
         bool isClauseSatisfied = false;
         ClauseNode *node = clauses[i].head;
         while(true) {
@@ -48,7 +48,7 @@ bool isSatisfied(bool* solution, int numClauses, Clause *clauses) {
                     break;
                 }
             }
-            // cout << "Checking literal " << node->literal << endl;
+            cout << "        Checking literal " << node->literal << endl;
             if(node == clauses[i].tail) break;
             node = node->next;
         }
@@ -67,7 +67,7 @@ void printSolution(int numVariables, bool* solution) {
 // Recursive solve
 int _solve(bool* solution, int numVariables, int numClauses, Clause *clauses, int n) {
     if(n >= numVariables) {
-        // printSolution(numVariables, solution);
+        printSolution(numVariables, solution);
         if(isSatisfied(solution, numClauses, clauses)) return 1;
         return 0;
     }
@@ -161,9 +161,9 @@ int main(int argc, char** argv) {
     bool isSAT = solve(numVariables, numClauses, clauses);
 
     if(isSAT) {
-        cout << "SAT instance is satifiable." << endl;
+        cout << "\nSAT instance is satifiable." << endl;
     } else {
-        cout << "SAT instance is unsatifiable." << endl;
+        cout << "\nSAT instance is unsatifiable." << endl;
     }
 
     
