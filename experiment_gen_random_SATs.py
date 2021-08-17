@@ -8,25 +8,28 @@ def terminal(cmd):
 
 def run(clauses, literals, num_vars):
 	terminal(f'python3 gen_random_SAT.py {clauses} {literals} {num_vars}')
+	
 	output = terminal('./kissat_gb/build/kissat random_SAT.cnf | grep process-time:')
-	
 	match = re.match('c process-time:\s+[^\s]+\s+([0-9\.]+)', output)
-	time = float(match.group(1))
-	
-	return time
+	t1 = float(match.group(1))
+	t2 = 1000
+
+	return (t1, t2)
 
 def header():
 	line = 'Clauses,'
 	line += 'Literals per clause,'
 	line += 'Variables,'
-	line += 'Time (s),'
+	line += 'KISSAT_GB Time (s),'
+	line += 'BRUTE_FORCE Time (s),'
 	return line
 
-def log(clauses, literals, num_vars, time):
+def log(clauses, literals, num_vars, t1, t2):
 	line = str(clauses) + ','
 	line += str(literals) + ','
 	line += str(num_vars) + ','
-	line += str(time) + ','
+	line += str(t1) + ','
+	line += str(t2) + ','
 	return line
 
 output = open('experiment_output.csv', 'w')
@@ -48,8 +51,8 @@ for clauses in range(step, total_clauses, step):
 			if(count % 10 == 0): print(f'Progress: {count / num_samples}')
 			count += 1
 
-			time = run(clauses, literals, num_vars)
-			output.write(log(clauses, literals, num_vars, time) + '\n')
+			(t1, t2) = run(clauses, literals, num_vars)
+			output.write(log(clauses, literals, num_vars, t1, t2) + '\n')
 
 output.close()
 

@@ -26,3 +26,9 @@ echo
 echo Running lstech_maple...
 read -t 3 -n 1
 ./lstech_maple/core/glucose $file
+
+
+echo
+echo Running brute_force...
+read -t 3 -n 1
+./brute_force/build/solver $file
