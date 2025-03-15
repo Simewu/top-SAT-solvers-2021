@@ -11,13 +11,18 @@ The winners of the main track were:
 - [lstech_maple](https://link.springer.com/content/pdf/10.1007%2F978-3-030-80223-3.pdf#page=76): (PAR-2: 2358, 144 solved), by Xindi Zhang, Shaowei Cai, and Zhihan Chen.
 - [kissat_gb](https://arxiv.org/pdf/2105.04595.pdf): (PAR-2: 2430, 143 solved), by Md Solimul Chowdhury, Martin Müller and Jia-Huai You.
 
-![](main-track.png)
+<p align="center">
+  <img src="./main-track.png" width="50%"/>
+</p>
 
 The source code of the solvers was taken from the [SAT 2021 repository](https://github.com/satcompetition/2021/blob/master/downloads/solvers-main.tar.xz).
 
 ---
+
 ## Usage
+
 To use the SAT solvers within a Linux machine, enter the following:
+
 ```bash
 # Compile the SAT solvers
 ./compile_SATs.sh
@@ -32,4 +37,4 @@ To use the SAT solvers within a Linux machine, enter the following:
 ---
 
 ## Web-based version
-For an easy-to-use web based SAT solver, visit https://github.com/simewu/SAT-solver.
+For an accessible web-based SAT solver, visit https://simewu.github.io/SAT-solver.
